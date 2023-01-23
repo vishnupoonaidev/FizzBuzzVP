@@ -76,37 +76,32 @@ return returnArray;
 
 function displayData(fbData){
 
-  //get the table body element from the page
-  let tableBody = document.getElementById("results");
+ let templateRows = "";
 
-  //get the row from the template
-  let templateRow = document.getElementById("fbTemplate");
 
-  //clear table first
-  tableBody.innerHTML = "";
+ for (let index = 0; index < fbData.length; index++) {
 
-  for (let i = 0; i < fbData.length; i += 5) {
-      const tableRow = document.importNode(templateRow.content, true);
-      //grab only the columns in the template
-      rowCols = tableRow.querySelectorAll("td");
+        let fizzBuzzResult = fbData[index];
+        let fizzColour = "primary"
+ 
+    if (fizzBuzzResult == "Fizz") {
+        fizzColour = "green"
+        
+    } else if(fizzBuzzResult == "Buzz") {
+        fizzColour = "purple"
+    }else if(fizzBuzzResult == "FizzBuzz"){
+        fizzColour = "red"
+    }else{
+        fizzColour = "primary"
+    }
 
-      rowCols[0].classList.add(fbData[i]);
-      rowCols[0].textContent = fbData[i];
-     
-      rowCols[1].classList.add(fbData[i+ 1]);
-      rowCols[1].textContent = fbData[i + 1];
-     
-      rowCols[2].classList.add(fbData[i+2]);
-      rowCols[2].textContent = fbData[i + 2];
-     
-      rowCols[3].classList.add(fbData[i+3]);
-      rowCols[3].textContent = fbData[i + 3];
-     
-      rowCols[4].classList.add(fbData[i+4]);
-      rowCols[4].textContent = fbData[i + 4];
+    templateRows += `<tr><td class="${fizzColour}">${fizzBuzzResult}</td><td class="${fizzColour}">${fizzBuzzResult}</td></tr>`;
 
-      tableBody.appendChild(tableRow);
-  }
+    
 
+    
+ }
+
+ document.getElementById("results").innerHTML = templateRows;
 
 }

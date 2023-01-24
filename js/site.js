@@ -82,6 +82,7 @@ function displayData(fbData){
  for (let index = 0; index < fbData.length; index++) {
 
         let fizzBuzzResult = fbData[index];
+    
         let fizzColour = "primary"
  
     if (fizzBuzzResult == "Fizz") {
@@ -95,9 +96,7 @@ function displayData(fbData){
         fizzColour = "primary"
     }
 
-    templateRows += `<tr><td class="${fizzColour}">${fizzBuzzResult}</td><td class="${fizzColour}">${fizzBuzzResult}</td></tr>`;
-
-    
+    templateRows += `<tr><td class="${fizzColour}">${fizzBuzzResult}</td></tr>`;
 
     
  }
